@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elemental Tiles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- SETUP SCREEN -->
+  <section id="setup-screen" class="screen">
+    <div class="setup-card">
+      <p class="eyebrow-mark">a board for four elements</p>
+      <h1>Elemental Tiles</h1>
+      <p class="tagline">Green, blue, orange, and purple magic bound to a 4×4 board. Push a line away from you, or pull one toward you — then pass the board.</p>
+
+      <div class="setup-field">
+        <label>How many mages are seated?</label>
+        <div id="player-count-buttons" class="count-buttons"></div>
+      </div>
+
+      <button id="start-btn" class="btn btn-primary btn-large">Begin</button>
+
+      <div class="legend">
+        <div class="legend-item"><span class="swatch swatch-green"></span>Verdant</div>
+        <div class="legend-item"><span class="swatch swatch-blue"></span>Tide</div>
+        <div class="legend-item"><span class="swatch swatch-orange"></span>Ember</div>
+        <div class="legend-item"><span class="swatch swatch-purple"></span>Amethyst</div>
+      </div>
+      <p class="flip-note">Verdant ⇄ Amethyst · Ember ⇄ Tide — some abilities flip a tile between its paired element.</p>
+    </div>
+  </section>
+
+  <!-- GAME SCREEN -->
+  <section id="game-screen" class="screen" hidden>
+    <header class="status-bar">
+      <div class="status-left">
+        <h2 id="turn-indicator">Player 1's Turn</h2>
+        <p id="turn-subtext">Choose a column to push or pull.</p>
+      </div>
+      <div class="status-right">
+        <button id="undo-btn" class="btn btn-ghost" title="Undo last action">Undo</button>
+        <button id="new-game-btn" class="btn btn-ghost">New Game</button>
+      </div>
+    </header>
+
+    <div id="board-wrapper">
+      <div class="dock dock-top" id="dock-top"></div>
+      <div class="middle-row">
+        <div class="dock dock-left" id="dock-left"></div>
+        <div id="grid"></div>
+        <div class="dock dock-right" id="dock-right"></div>
+      </div>
+      <div class="dock dock-bottom" id="dock-bottom"></div>
+    </div>
+
+    <footer class="action-bar">
+      <button id="flip-toggle-btn" class="btn btn-flip">Flip a Tile</button>
+      <button id="end-turn-btn" class="btn btn-primary">End Turn</button>
+      <button id="end-monster-btn" class="btn btn-monster" hidden>End Monster Turn</button>
+    </footer>
+
+    <p id="flip-hint" class="flip-hint" hidden>Choose a tile on the board to flip its element.</p>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
